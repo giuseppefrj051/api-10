@@ -1,0 +1,30 @@
+date an time:
+
+var d = new Date();
+console.log(d.toLocaleTimeString()); this one just time hh/mm/ss
+console.log(d.toLocaleDateString());this one just ate dd/mm/yyyy
+console.log(d.toString()); example: Thu Sep 01 2022 11:10:03 GMT+0100 (British Summer Time)
+console.log(d.toLocaleString()); example 01/09/2022, 11:10:03
+
+////////////////////////////////////
+time stamp local working:
+process.env.TZ = 'Europe/Belfast';
+function localdate(){
+var date = new Date(); // Or the date you'd like converted.
+var isoDateTime = new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString();
+console.log(isoDateTime)
+}
+////////////////////////////////////
+ip address
+var ip = require("ip");
+console.dir ( ip.address() );
+////////////////////////////////////
+example how to get a json array and object getting the las element 
+
+const dbResults = await DBschema.find();
+var lastValue = dbResults[0].device.data.value.slice(-1);
+console.log(lastValue[0]);
+//////////////////////////////////////////////////////////////
+query Id 
+const dbResults = await DBschema.find({},{_id:1});
+//////////////////////////////////////////////////////
